@@ -1,11 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Rony Moura&lt;ronymmoura@gmail.com&gt;</Authors>
     <Company>Intech</Company>
-    <Product />
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Product>Intech.Lib.Util</Product>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
+    <Description>Intech Utils</Description>
+    <PackageId>Intech.Lib.Util</PackageId>
+    <PackageReleaseNotes>Changing the dependencies</PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
