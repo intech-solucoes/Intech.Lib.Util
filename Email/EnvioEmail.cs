@@ -1,6 +1,7 @@
 ﻿#region Usings
 using MimeKit;
 using MimeKit.Text;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -113,13 +114,13 @@ namespace Intech.Lib.Util.Email
             return corpo.ToString();
         }
 
-        public static void EnviarMailKit(ConfigEmail config, string destinatario, string assunto, string corpo)
+        public static void EnviarMailKit(ConfigEmail config, string destinatario, string assunto, string corpo, Stream anexo = null, string tituloAnexo = null)
         {
             var listaDestinatarios = new List<string> { destinatario };
-            EnviarMailKit(config, listaDestinatarios, assunto, corpo);
+            EnviarMailKit(config, listaDestinatarios, assunto, corpo, anexo, tituloAnexo);
         }
 
-        public static void EnviarMailKit(ConfigEmail config, List<string> listaDestinatarios, string assunto, string corpo)
+        public static void EnviarMailKit(ConfigEmail config, List<string> listaDestinatarios, string assunto, string corpo, Stream anexo = null, string tituloAnexo = null)
         {
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress(config.EmailRemetente));
@@ -129,10 +130,15 @@ namespace Intech.Lib.Util.Email
 
             message.Subject = assunto;
 
-            message.Body = new TextPart(TextFormat.Html)
+            var builder = new BodyBuilder
             {
-                Text = corpo
+                HtmlBody = corpo
             };
+
+            if (anexo != null)
+                builder.Attachments.Add(tituloAnexo, anexo);
+
+            message.Body = builder.ToMessageBody();
 
             using (var client = new MailKit.Net.Smtp.SmtpClient())
             {

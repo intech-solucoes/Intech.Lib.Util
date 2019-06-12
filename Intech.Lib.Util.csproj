@@ -6,10 +6,10 @@
     <Company>Intech</Company>
     <Product>Intech.Lib.Util</Product>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.1</Version>
+    <Version>1.0.4</Version>
     <Description>Intech Utils</Description>
     <PackageId>Intech.Lib.Util</PackageId>
-    <PackageReleaseNotes>Changing the dependencies</PackageReleaseNotes>
+    <PackageReleaseNotes>Ajuste na classe de envio de e-mail</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
