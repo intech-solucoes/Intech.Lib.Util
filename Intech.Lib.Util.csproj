@@ -13,8 +13,4 @@
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="MailKit" Version="2.1.3" />
-  </ItemGroup>
-
 </Project>
